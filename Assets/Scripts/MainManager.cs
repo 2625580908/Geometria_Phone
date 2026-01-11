@@ -76,13 +76,16 @@ public class MainManager : SingletonMono<MainManager>
         {
             MenuUi.SetActive(false);
             WebViewPrefabs.SetActive(true);
+            WebViewClose.gameObject.SetActive(true);
         });
 
 
         WebViewClose.onClick.AddListener(() =>
         {
+            Debug.Log("WebViewClose");
             MenuUi.SetActive(true);
             WebViewPrefabs.SetActive(false);
+            WebViewClose.gameObject.SetActive(false);
         });
     }
    
