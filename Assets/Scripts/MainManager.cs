@@ -7,6 +7,7 @@ using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
+using Vuplex.WebView;
 
 public class MainManager : SingletonMono<MainManager>
 {
@@ -28,7 +29,14 @@ public class MainManager : SingletonMono<MainManager>
     public Button Sync;
 
     public Button Preview;
+    
+    public Button WebView;
+    
+    public Button WebViewClose;
+    
+    public GameObject WebViewPrefabs;
 
+    public CanvasWebViewPrefab canvasWebViewPrefab;
     [Header("函数数据")]
     public List<MathematicalFunction> mathematicalFunctions;
     public List<GameObject> mathematicalObjList;
@@ -62,6 +70,19 @@ public class MainManager : SingletonMono<MainManager>
         Preview.onClick.AddListener(() =>
         {
             SetPreviewUIActivate(true);
+        });
+
+        WebView.onClick.AddListener(() =>
+        {
+            MenuUi.SetActive(false);
+            WebViewPrefabs.SetActive(true);
+        });
+
+
+        WebViewClose.onClick.AddListener(() =>
+        {
+            MenuUi.SetActive(true);
+            WebViewPrefabs.SetActive(false);
         });
     }
    
